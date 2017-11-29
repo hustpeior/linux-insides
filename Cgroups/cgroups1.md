@@ -19,7 +19,7 @@ One `control group subsystem` represents one kind of resources like a processor 
 * `freezer` - allows to suspend/resume for a task(s) from a group;
 * `net_cls` - allows to mark network packets from task(s) from a group;
 * `net_prio` - provides a way to dynamically set the priority of network traffic per network interface for a group;
-* `perf_event` - provides access to [perf events](https://en.wikipedia.org/wiki/Perf_(Linux)) to a group;
+* `perf_event` - provides access to [perf events](https://en.wikipedia.org/wiki/Perf_\(Linux\)) to a group;
 * `hugetlb` - activates support for [huge pages](https://www.kernel.org/doc/Documentation/vm/hugetlbpage.txt) for a group;
 * `pid` - sets limit to number of processes in a group.
 
@@ -174,7 +174,7 @@ print line
 ./cgroup_test_script.sh: line 5: /dev/tty: Operation not permitted
 ```
 
-Similar situation will be when you will run you [docker](https://en.wikipedia.org/wiki/Docker_(software)) containers for example:
+Similar situation will be when you will run you [docker](https://en.wikipedia.org/wiki/Docker_\(software\)) containers for example:
 
 ```
 ~$ docker ps
@@ -277,7 +277,7 @@ struct cgroup_subsys {
 
 Where for example `css_online` and `css_offline` callbacks are called after a cgroup successfully will complete all allocations and a cgroup will be before releasing respectively. The `early_init` flags marks subsystems which may/should be initialized early. The `id` and `name` fields represents unique identifier in the array of registered subsystems for a cgroup and `name` of a subsystem respectively. The last - `root` fields represents pointer to the root of of a cgroup hierarchy.
 
-Of course the `cgroup_subsys` structure bigger and has other fields, but it is enough for now. Now as we got to know important structures related to `cgroups` mechanism, let's return to the `cgroup_init_early` function. Main purpose of this function is to do early initialization of some subsystems. As you already may guess, these `early` subsystems should have `cgroup_subsys->early_init = 1`. Let's look what subsystems may be initialized early.
+Of course the `cgroup_subsys` structure is bigger and has other fields, but it is enough for now. Now as we got to know important structures related to `cgroups` mechanism, let's return to the `cgroup_init_early` function. Main purpose of this function is to do early initialization of some subsystems. As you already may guess, these `early` subsystems should have `cgroup_subsys->early_init = 1`. Let's look what subsystems may be initialized early.
 
 After the definition of the two local variables we may see following lines of code:
 
@@ -444,6 +444,6 @@ Links
 * [cgroups kernel documentation](https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt)
 * [cgroups v2](https://www.kernel.org/doc/Documentation/cgroup-v2.txt)
 * [bash](https://www.gnu.org/software/bash/)
-* [docker](https://en.wikipedia.org/wiki/Docker_(software))
-* [perf events](https://en.wikipedia.org/wiki/Perf_(Linux))
+* [docker](https://en.wikipedia.org/wiki/Docker_\(software\))
+* [perf events](https://en.wikipedia.org/wiki/Perf_\(Linux\))
 * [Previous chapter](https://0xax.gitbooks.io/linux-insides/content/MM/linux-mm-1.html)
